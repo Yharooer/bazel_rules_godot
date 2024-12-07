@@ -1,0 +1,4 @@
+module(
+    name = "godot_hierarchy_test",
+    version = "0.0.0",
+)

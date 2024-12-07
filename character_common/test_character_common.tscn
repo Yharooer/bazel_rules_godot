@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bg3vgo2sjtkue"]
+
+[node name="TestCharacterCommon" type="Node2D"]
