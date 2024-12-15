@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmc4itxq1c1jj"]
+
+[node name="BazelBuildButton" type="Button"]
+offset_right = 48.0
+offset_bottom = 31.0
+text = "Build"

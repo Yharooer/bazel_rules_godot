@@ -1,5 +1,11 @@
-load("//godot_rules:godot_rules.bzl", "godot_addon")
+load("//godot_rules:godot_rules.bzl", "godot_lib")
 
-godot_addon(
+package(default_visibility = ["//visibility:public"])
+
+godot_lib(
     name = "character_common",
+    srcs = glob(
+        ["**/*"],
+        exclude = ["project.godot"],
+    ),
 )

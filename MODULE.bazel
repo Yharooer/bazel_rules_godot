@@ -2,3 +2,5 @@ module(
     name = "godot_hierarchy_test",
     version = "0.0.0",
 )
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
