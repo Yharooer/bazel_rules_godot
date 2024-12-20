@@ -5,6 +5,7 @@
 # bazel run //character_gdscript:character_gdscript_wrapper -s
 
 load("//godot_rules:godot_core_rules.bzl", "gdbazel_wrapper_rule", "godot_exec_rule", "godot_lib_rule")
+load("//godot_rules:godot_cpp_rules.bzl", "godot_cpp_repo_rule")
 
 def godot_lib(*args, **kwargs):
     godot_lib_rule(*args, **kwargs)
@@ -21,3 +22,6 @@ def godot_exec(*args, **kwargs):
         name = "gdbazel_wrapper",
         deps = kwargs.get("deps"),
     )
+
+def godot_cpp_repo(*args, **kwargs):
+    godot_cpp_repo_rule(*args, **kwargs)
