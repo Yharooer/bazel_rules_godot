@@ -10,5 +10,6 @@ godot_exec(
     deps = [
         "//character_cpp_gdext",
         "//character_gdscript",
+        "//character_rust_gdext",
     ],
 )

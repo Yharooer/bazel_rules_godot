@@ -1,5 +1,6 @@
 #include "gdexample.h"
 #include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/classes/engine.hpp>
 
 using namespace godot;
 
@@ -7,6 +8,9 @@ void GDExample::_bind_methods() {
 }
 
 GDExample::GDExample() {
+	if (Engine::get_singleton()->is_editor_hint())
+		set_process_mode(PROCESS_MODE_DISABLED);
+
 	// Initialize any variables here.
 	time_passed = 0.0;
 }

@@ -5,7 +5,16 @@ module(
 
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_foreign_cc", version = "0.13.0")
+bazel_dep(name = "rules_rust", version = "0.56.0")
 
 rules_godot = use_extension("//rules_godot:extensions.bzl", "rules_godot")
 rules_godot.register_godot_cpp(branch = "4.3")
 use_repo(rules_godot, "godot_cpp")
+
+crate = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
+crate.spec(
+    package = "godot",
+    version = "0.2.1",
+)
+crate.from_specs()
+use_repo(crate, "crates")

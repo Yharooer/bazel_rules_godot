@@ -18,6 +18,7 @@ def godot_gdextension_cpp(*args, **kwargs):
     gdextension_rule(
         name = kwargs.get("name"),
         lib = ":cc_shared_library",
+        shared_library_filename = "libcc_shared_library",
         entry_symbol = kwargs.get("entry_symbol"),
-        deps = [],
+        deps = [],  # TODO handle deps
     )

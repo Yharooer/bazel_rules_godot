@@ -33,10 +33,8 @@ def _generate_gdextension_file_content(ctx, filename):
     ])
 
 def _find_binary(ctx):
-    print(ctx.attr.lib)
-    print(ctx.attr.lib[DefaultInfo].files.to_list())
     for file in ctx.attr.lib[DefaultInfo].files.to_list():
-        if file.basename.split("/")[-1].split(".")[0] == "libcc_shared_library":
+        if file.basename.split("/")[-1].split(".")[0] == ctx.attr.shared_library_filename:
             return file
     fail("Couldn't find C++ shared library out of [%s]." % str(ctx.attr.lib[DefaultInfo].files.to_list()))
 
@@ -66,6 +64,7 @@ gdextension_rule = rule(
     attrs = {
         "lib": attr.label(allow_files = True),
         "deps": attr.label_list(allow_files = True, default = []),
+        "shared_library_filename": attr.string(mandatory = True),
         "entry_symbol": attr.string(mandatory = True),
         "reloadable": attr.bool(default = True),
     },
