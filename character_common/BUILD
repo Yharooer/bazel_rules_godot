@@ -1,4 +1,4 @@
-load("//godot_rules:godot_rules.bzl", "godot_lib")
+load("//rules_godot:rules.bzl", "godot_lib")
 
 package(default_visibility = ["//visibility:public"])
 

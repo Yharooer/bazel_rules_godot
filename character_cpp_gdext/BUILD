@@ -1,8 +1,10 @@
+load("//rules_godot:rules.bzl", "godot_gdextension_cpp")
+
 package(default_visibility = ["//visibility:public"])
 
-cc_library(
+godot_gdextension_cpp(
     name = "character_cpp_gdext",
     srcs = glob(["src/*.cpp"]),
     hdrs = glob(["src/*.h"]),
-    deps = ["@godot_cpp//:godot-cpp"],
+    entry_symbol = "example_library_init",
 )

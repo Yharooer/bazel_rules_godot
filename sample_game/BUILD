@@ -1,4 +1,4 @@
-load("//godot_rules:godot_rules.bzl", "godot_exec")
+load("//rules_godot:rules.bzl", "godot_exec")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -7,5 +7,8 @@ godot_exec(
     srcs = glob(
         ["**/*"],
     ),
-    deps = ["//character_gdscript"],
+    deps = [
+        "//character_cpp_gdext",
+        "//character_gdscript",
+    ],
 )

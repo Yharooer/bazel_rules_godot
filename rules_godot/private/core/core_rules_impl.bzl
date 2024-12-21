@@ -21,8 +21,6 @@ def _copy_src_files(ctx, basepath = None, remove_path_prefix_levels = 0):
     return output_files
 
 def _create_bazel_wrapper_directory(ctx, deps, basepath):
-    print(type(deps))
-    print(deps)
     out_files = []
     for file in deps.to_list():
         out_file = ctx.actions.declare_file("%s/%s" % (basepath, file.short_path))
@@ -55,7 +53,7 @@ def _godot_lib_impl(ctx):
 godot_lib_rule = rule(
     implementation = _godot_lib_impl,
     attrs = {
-        "deps": attr.label_list(),
+        "deps": attr.label_list(default = []),
         "srcs": attr.label_list(allow_files = True, default = ["**/*"]),
     },
 )
@@ -78,7 +76,7 @@ def _godot_exec_impl(ctx):
 godot_exec_rule = rule(
     implementation = _godot_exec_impl,
     attrs = {
-        "deps": attr.label_list(),
+        "deps": attr.label_list(default = []),
         "srcs": attr.label_list(allow_files = True, default = []),
     },
 )

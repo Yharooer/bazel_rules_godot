@@ -5,8 +5,7 @@ module(
 
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_foreign_cc", version = "0.13.0")
-bazel_dep(name = "rules_cc", version = "0.1.0")
 
-rules_godot = use_extension("//godot_rules:extensions.bzl", "rules_godot")
-rules_godot.godot_cpp(tag = "4.3")
+rules_godot = use_extension("//rules_godot:extensions.bzl", "rules_godot")
+rules_godot.register_godot_cpp(branch = "4.3")
 use_repo(rules_godot, "godot_cpp")
